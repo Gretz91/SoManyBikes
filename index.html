@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vĩnh Phát Motorbikes — Da Nang Scooter & Motorbike Rental</title>
+  <meta name="description" content="Rent reliable motorbikes and scooters in Da Nang. No deposit, helmets included, fast and friendly service. Automatic and semi-automatic options from 50cc to 155cc. Vĩnh Phát Motorbikes.">
+  <meta name="keywords" content="motorbike rental Da Nang, scooter rental, Vietnam motorbike, Vĩnh Phát, automatic scooter Da Nang, semi-automatic motorbike">
+  <meta property="og:title" content="Vĩnh Phát Motorbikes — Da Nang">
+  <meta property="og:description" content="Rent reliable motorbikes in Da Nang. No deposit required. 50cc to 155cc fleet.">
+  <meta property="og:image" content="images/hero.storefront.webp">
+  <link rel="icon" type="image/webp" href="images/logo.webp">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: {
+            brand: {
+              blue: '#2563eb',
+              'blue-dark': '#1e40af',
+              'blue-deep': '#1e3a5f',
+              red: '#dc2626',
+              gold: '#d97706',
+              'gold-light': '#fbbf24',
+            },
+            surface: {
+              white: '#ffffff',
+              light: '#f8fafc',
+              muted: '#f1f5f9',
+              border: '#e2e8f0',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      background: #f1f5f9;
+      color: #1e293b;
+    }
+    @media (max-width: 767px) {
+      body { padding-bottom: 76px; }
+    }
+
+    /* ===== CUSTOMER CAROUSEL ===== */
+    .carousel-viewport { aspect-ratio: 4 / 5; }
+    @media (min-width: 768px) {
+      .carousel-viewport { aspect-ratio: 3 / 4; }
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    .carousel-slide {
+      min-width: 100%;
+      position: relative;
+    }
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Dots */
+    .dot { transition: all 0.3s ease; }
+    .dot.active { background: #2563eb; transform: scale(1.4); }
+
+    /* Gold shimmer */
+    @keyframes shimmer {
+      0% { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+    .gold-shimmer {
+      background: linear-gradient(90deg, #d97706 0%, #fbbf24 40%, #d97706 80%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmer 3s linear infinite;
+    }
+
+    /* Fade-up */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .anim-fade-up { opacity: 0; animation: fadeUp 0.6s ease-out forwards; }
+    .anim-delay-1 { animation-delay: 0.12s; }
+    .anim-delay-2 { animation-delay: 0.24s; }
+    .anim-delay-3 { animation-delay: 0.36s; }
+
+    /* Mobile sticky footer */
+    .sticky-cta-mobile {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 50;
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-top: 1px solid #e2e8f0;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.06);
+    }
+
+    /* Language select */
+    .lang-select {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #fff;
+      border-radius: 8px;
+      padding: 5px 8px;
+      font-size: 12px;
+      outline: none;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .lang-select option { color: #1e293b; }
+    @media (min-width: 768px) {
+      .lang-select {
+        background: rgba(255,255,255,0.2);
+        font-size: 13px;
+        padding: 6px 12px;
+      }
+    }
+
+    /* Info card hover */
+    .info-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .info-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(37,99,235,0.1);
+    }
+
+    /* Swipe hint */
+    @keyframes pulse-hint {
+      0%, 100% { opacity: 0.4; transform: translateX(0); }
+      50% { opacity: 0.8; transform: translateX(-5px); }
+    }
+    .swipe-hint { animation: pulse-hint 2s ease-in-out infinite; }
+
+    /* Map glow */
+    @keyframes glow {
+      0%, 100% { box-shadow: 0 4px 15px rgba(37,99,235,0.2); }
+      50% { box-shadow: 0 4px 25px rgba(37,99,235,0.35); }
+    }
+    .map-glow { animation: glow 2.5s ease-in-out infinite; }
+
+    /* Peace badge */
+    @keyframes gentle-pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+    }
+    .peace-pulse { animation: gentle-pulse 3s ease-in-out infinite; }
+
+    /* Section divider */
+    .section-divider {
+      height: 4px;
+      background: linear-gradient(90deg, #2563eb, #d97706, #dc2626);
+      border-radius: 2px;
+      opacity: 0.25;
+    }
+
+    /* Bike grid card hover */
+    .bike-grid-card { transition: transform 0.3s, box-shadow 0.3s; }
+    .bike-grid-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+    }
+
+    /* Customer carousel desktop grid hover */
+    .customer-grid-card { transition: transform 0.3s, box-shadow 0.3s; }
+    .customer-grid-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+    }
+
+    /* ===== BIKE FLEET GALLERY ===== */
+    /* Hero image — spans full width on mobile, 2 cols on desktop */
+    .fleet-hero-img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+    }
+    @media (min-width: 768px) {
+      .fleet-hero-img {
+        border-radius: 20px;
+        aspect-ratio: 21 / 9;
+        max-height: 360px;
+      }
+    }
+
+    /* Tile images — square aspect */
+    .fleet-tile {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .fleet-tile:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.14);
+    }
+    .fleet-tile-img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      display: block;
+    }
+    .fleet-tile-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.78) 0%, transparent 100%);
+      padding: 28px 12px 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="fixed top-0 left-0 right-0 z-40" style="background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%);">
+    <div class="flex items-center px-3 py-2 md:px-8 md:py-3 max-w-7xl mx-auto gap-2 md:gap-4">
+      <!-- Logo -->
+      <a href="#" class="flex-shrink-0 flex items-center gap-3">
+        <img src="images/logo.webp" alt="Vĩnh Phát Motorbikes Logo" class="h-[48px] md:h-[56px] w-auto rounded-lg" loading="lazy">
+        <div class="hidden md:block">
+          <span class="text-white font-extrabold text-lg leading-tight tracking-tight block" style="text-shadow: 0 1px 3px rgba(0,0,0,0.2);">Vĩnh Phát Motorbikes</span>
+          <span class="text-blue-200 font-medium text-xs uppercase tracking-widest block">Da Nang Motorbike Rental</span>
+        </div>
+      </a>
+
+      <!-- Mobile-only centered name -->
+      <div class="flex-1 text-center md:hidden">
+        <span class="text-white font-extrabold text-base leading-tight tracking-tight block" style="text-shadow: 0 1px 3px rgba(0,0,0,0.2);">Vĩnh Phát</span>
+        <span class="text-blue-200 font-semibold text-[11px] uppercase tracking-widest block">Motorbikes</span>
+      </div>
+
+      <div class="hidden md:block flex-1"></div>
+
+      <!-- Desktop CTA buttons -->
+      <div class="hidden md:flex items-center gap-3">
+        <a href="https://wa.me/84798456456" target="_blank" rel="noopener noreferrer"
+           class="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#25D366] text-white font-bold text-sm transition-transform hover:scale-105 shadow-md">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <span data-i18n="whatsapp">WhatsApp</span>
+        </a>
+        <a href="https://zalo.me/84798456456" target="_blank" rel="noopener noreferrer"
+           class="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#0068FF] text-white font-bold text-sm transition-transform hover:scale-105 shadow-md">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><text x="12" y="16" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="Inter,sans-serif">Z</text></svg>
+          <span data-i18n="zalo">Zalo</span>
+        </a>
+        <a href="https://maps.app.goo.gl/C3TazTRhCGttZ7H47" target="_blank" rel="noopener noreferrer"
+           class="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/15 text-white font-bold text-sm transition-transform hover:scale-105 hover:bg-white/25 border border-white/20">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          <span data-i18n="openMapsShort">Maps</span>
+        </a>
+      </div>
+
+      <!-- Language Selector -->
+      <select id="langSelector" class="lang-select flex-shrink-0" onchange="switchLang(this.value)" aria-label="Language">
+        <option value="en">🇬🇧 EN</option>
+        <option value="vi">🇻🇳 VI</option>
+        <option value="ko">🇰🇷 KO</option>
+        <option value="zh">🇨🇳 ZH</option>
+        <option value="ja">🇯🇵 JA</option>
+        <option value="ru">🇷🇺 RU</option>
+      </select>
+    </div>
+  </header>
+
+  <!-- Spacer -->
+  <div class="h-[64px] md:h-[76px]"></div>
+
+  <!-- ==================== HERO ==================== -->
+  <section id="hero" class="relative w-full overflow-hidden bg-brand-blue-deep flex flex-col md:flex-row items-stretch min-h-[70vh] md:min-h-[500px] lg:min-h-[550px]">
+    <div class="absolute inset-0 md:relative md:w-1/2 md:inset-auto md:h-auto min-h-0">
+      <img src="images/hero.storefront.webp" alt="Vĩnh Phát Motorbikes storefront in Da Nang" class="w-full h-full object-cover object-center" loading="lazy">
+      <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent md:hidden"></div>
+    </div>
+    <div class="relative flex-1 flex flex-col justify-end p-5 pb-8 md:p-12 lg:p-16 md:justify-center md:bg-gradient-to-br md:from-[#1e3a5f] md:to-[#0f172a] md:w-1/2 z-10 min-h-[70vh] md:min-h-0">
+      <h1 class="text-[28px] md:text-4xl lg:text-5xl font-black leading-tight anim-fade-up" data-i18n="heroTitle">
+        <span class="text-white">Your Da Nang</span><br>
+        <span class="gold-shimmer">Adventure Starts Here.</span>
+      </h1>
+      <p class="text-white/90 text-[15px] md:text-base lg:text-lg mt-3 leading-relaxed anim-fade-up anim-delay-1 md:max-w-md" data-i18n="heroSub">
+        Welcome to Vĩnh Phát — your friendly neighborhood motorbike rental shop. We'll get you on the road in minutes, with zero stress and a big smile. 🏍️
+      </p>
+    </div>
+  </section>
+
+  <!-- ==================== KEY INFO CARDS ==================== -->
+  <section class="px-4 md:px-8 py-6 md:py-10 bg-surface-light">
+    <div class="max-w-5xl mx-auto">
+      <!-- Peace of Mind Banner -->
+      <div class="peace-pulse bg-blue-50/80 rounded-2xl p-4 mb-6 border border-blue-100/60 flex items-center gap-3.5 shadow-sm anim-fade-up">
+        <div class="text-2xl md:text-3xl flex-shrink-0">🛡️</div>
+        <p class="text-brand-blue-deep font-bold text-sm md:text-base leading-snug" data-i18n="peaceOfMind">
+          Adventure with peace of mind — our support and assistance are always just a phone call away.
+        </p>
+      </div>
+
+      <h2 class="text-xl md:text-3xl font-extrabold text-brand-blue-deep mb-4 md:mb-6 anim-fade-up" data-i18n="whyUsTitle">Why Riders Choose Us</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+
+        <div class="info-card bg-white rounded-2xl p-4 md:p-5 border border-surface-border shadow-sm anim-fade-up">
+          <div class="flex items-start gap-3">
+            <div class="w-11 h-11 md:w-14 md:h-14 rounded-xl bg-green-50 flex items-center justify-center text-2xl md:text-3xl flex-shrink-0">💰</div>
+            <div>
+              <h3 class="font-bold text-brand-blue-deep text-base md:text-lg" data-i18n="noDeposit">No Deposit Required</h3>
+              <p class="text-slate-500 text-sm md:text-base mt-0.5" data-i18n="noDepositDesc">Keep your cash in your pocket — we trust our riders. Just bring your passport or ID and you're good to go!</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-card bg-white rounded-2xl p-4 md:p-5 border border-surface-border shadow-sm anim-fade-up anim-delay-1">
+          <div class="flex items-start gap-3">
+            <div class="w-11 h-11 md:w-14 md:h-14 rounded-xl bg-blue-50 flex items-center justify-center text-2xl md:text-3xl flex-shrink-0">⛑️</div>
+            <div>
+              <h3 class="font-bold text-brand-blue-deep text-base md:text-lg" data-i18n="helmets">Helmets & Phone Holders Included</h3>
+              <p class="text-slate-500 text-sm md:text-base mt-0.5" data-i18n="helmetsDesc">Every rental comes with a quality helmet and a phone holder so you can navigate Da Nang like a local — hands-free!</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-card bg-white rounded-2xl p-4 md:p-5 border border-surface-border shadow-sm anim-fade-up anim-delay-2">
+          <div class="flex items-start gap-3">
+            <div class="w-11 h-11 md:w-14 md:h-14 rounded-xl bg-amber-50 flex items-center justify-center text-2xl md:text-3xl flex-shrink-0">⚡</div>
+            <div>
+              <h3 class="font-bold text-brand-blue-deep text-base md:text-lg" data-i18n="fastProcess">Fast & Friendly Process</h3>
+              <p class="text-slate-500 text-sm md:text-base mt-0.5" data-i18n="fastProcessDesc">Walk in, pick your bike, and ride out — it's that simple. Our team speaks your language and we'll have you cruising in minutes, not hours.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-card bg-white rounded-2xl p-4 md:p-5 border border-surface-border shadow-sm anim-fade-up anim-delay-3">
+          <div class="flex items-start gap-3">
+            <div class="w-11 h-11 md:w-14 md:h-14 rounded-xl bg-red-50 flex items-center justify-center text-2xl md:text-3xl flex-shrink-0">🔧</div>
+            <div>
+              <h3 class="font-bold text-brand-blue-deep text-base md:text-lg" data-i18n="support">24/7 Roadside Support</h3>
+              <p class="text-slate-500 text-sm md:text-base mt-0.5" data-i18n="supportDesc">Flat tire? Got lost? No worries! One call and we'll come to you. You're never on your own with Vĩnh Phát.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="px-8 py-1 max-w-5xl mx-auto"><div class="section-divider"></div></div>
+
+  <!-- ==================== BIKE FLEET GALLERY ==================== -->
+  <section class="px-4 md:px-8 py-6 md:py-10 bg-white">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-xl md:text-3xl font-extrabold text-brand-blue-deep mb-1 anim-fade-up" data-i18n="fleetTitle">Our Huge Fleet</h2>
+      <p class="text-slate-500 text-sm md:text-base mb-2 anim-fade-up anim-delay-1" data-i18n="fleetSub">From easy city scooters to powerful road bikes — we've got a ride for every adventure.</p>
+      <p class="text-slate-400 text-sm md:text-base mb-5 md:mb-8 anim-fade-up anim-delay-1" data-i18n="fleetDetail">We stock a <strong class="text-brand-blue-deep">huge fleet of motorbikes from 50cc all the way up to 155cc</strong>, with both <strong class="text-brand-blue-deep">Automatic</strong> and <strong class="text-brand-blue-deep">Semi-Automatic</strong> transmission options — so whether you're a brand-new rider or a seasoned traveller tackling the Hai Van Pass, we have the perfect machine for you.</p>
+
+      <!-- Hero Image -->
+      <div class="relative mb-4 md:mb-5 anim-fade-up anim-delay-2 rounded-2xl overflow-hidden shadow-md bike-grid-card">
+        <img src="images/Morebikes.125.webp"
+             alt="Vĩnh Phát full motorbike fleet — 50cc to 155cc scooters and motorbikes"
+             class="fleet-hero-img"
+             loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent rounded-2xl pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-4 md:p-6">
+          <div class="flex flex-wrap gap-2 mb-2">
+            <span class="bg-green-500 text-white text-[10px] md:text-xs font-bold px-2.5 py-1 rounded-full uppercase tracking-wide shadow" data-i18n="badgeAuto">Automatic</span>
+            <span class="bg-blue-500 text-white text-[10px] md:text-xs font-bold px-2.5 py-1 rounded-full uppercase tracking-wide shadow" data-i18n="badgeSemi">Semi-Automatic</span>
+            <span class="bg-brand-gold text-white text-[10px] md:text-xs font-bold px-2.5 py-1 rounded-full uppercase tracking-wide shadow">50cc → 155cc</span>
+          </div>
+          <p class="text-white font-bold text-base md:text-xl drop-shadow-lg" data-i18n="fleetHeroCaption">Something for everyone — the right bike is waiting for you!</p>
+        </div>
+      </div>
+
+      <!-- Grid Tiles — 3 bikes -->
+      <div class="grid grid-cols-3 gap-3 md:gap-5 anim-fade-up anim-delay-3">
+
+        <!-- 50cc -->
+        <div class="fleet-tile">
+          <img src="images/bike.50.webp"
+               alt="50cc Automatic Scooter — perfect for beginners"
+               class="fleet-tile-img"
+               loading="lazy">
+          <div class="fleet-tile-caption">
+            <span class="bg-green-500 text-white text-[9px] md:text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wide block w-fit mb-1" data-i18n="badgeAuto">Automatic</span>
+            <span class="text-white font-bold text-xs md:text-base block leading-tight" data-i18n="bike50">50cc Scooter</span>
+            <p class="text-white/80 text-[10px] md:text-sm mt-0.5 hidden md:block" data-i18n="bike50Desc">Super easy to ride — perfect for first-timers and cruising around the city. Just twist and go!</p>
+          </div>
+        </div>
+
+        <!-- 100–125cc -->
+        <div class="fleet-tile">
+          <img src="images/bikes.100.webp"
+               alt="100–125cc Semi-Automatic motorbike — great for day trips"
+               class="fleet-tile-img"
+               loading="lazy">
+          <div class="fleet-tile-caption">
+            <span class="bg-blue-500 text-white text-[9px] md:text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wide block w-fit mb-1" data-i18n="badgeSemi">Semi-Auto</span>
+            <span class="text-white font-bold text-xs md:text-base block leading-tight" data-i18n="bike100">100–125cc</span>
+            <p class="text-white/80 text-[10px] md:text-sm mt-0.5 hidden md:block" data-i18n="bike100Desc">The sweet spot — more power for day trips to Hoi An, Ba Na Hills, and beyond. Easy clutchless shifting.</p>
+          </div>
+        </div>
+
+        <!-- 155cc -->
+        <div class="fleet-tile">
+          <img src="images/bike.155.webp"
+               alt="155cc Automatic Motorbike — built for the open road"
+               class="fleet-tile-img"
+               loading="lazy">
+          <div class="fleet-tile-caption">
+            <span class="bg-green-500 text-white text-[9px] md:text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wide block w-fit mb-1" data-i18n="badgeAuto">Automatic</span>
+            <span class="text-white font-bold text-xs md:text-base block leading-tight" data-i18n="bike155">155cc Motorbike</span>
+            <p class="text-white/80 text-[10px] md:text-sm mt-0.5 hidden md:block" data-i18n="bike155Desc">Built for the open road — take on the Hai Van Pass with confidence. Power and control when you need it most.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Mobile tile captions (shown below the grid on small screens) -->
+      <div class="grid grid-cols-3 gap-3 mt-3 md:hidden anim-fade-up anim-delay-3">
+        <div class="text-center">
+          <p class="text-brand-blue-deep font-bold text-xs leading-tight" data-i18n="bike50">50cc Scooter</p>
+          <p class="text-slate-400 text-[10px] mt-0.5" data-i18n="bike50Desc">Perfect for beginners &amp; city rides.</p>
+        </div>
+        <div class="text-center">
+          <p class="text-brand-blue-deep font-bold text-xs leading-tight" data-i18n="bike100">100–125cc Semi-Auto</p>
+          <p class="text-slate-400 text-[10px] mt-0.5" data-i18n="bike100Desc">Day trips to Hoi An &amp; Bà Nà Hills.</p>
+        </div>
+        <div class="text-center">
+          <p class="text-brand-blue-deep font-bold text-xs leading-tight" data-i18n="bike155">155cc Motorbike</p>
+          <p class="text-slate-400 text-[10px] mt-0.5" data-i18n="bike155Desc">Conquer the Hai Van Pass.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="px-8 py-1 max-w-5xl mx-auto"><div class="section-divider"></div></div>
+
+  <!-- ==================== HAPPY CUSTOMERS ==================== -->
+  <section class="px-4 md:px-8 py-6 md:py-10 bg-surface-light">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-xl md:text-3xl font-extrabold text-brand-blue-deep mb-1 anim-fade-up" data-i18n="customersTitle">Happy Riders, Happy Memories</h2>
+      <p class="text-slate-400 text-sm md:text-base mb-4 md:mb-8 anim-fade-up anim-delay-1" data-i18n="customersSub">Join hundreds of travelers who explored Da Nang with us!</p>
+
+      <!-- UNIFIED CAROUSEL (mobile touch-friendly + desktop auto-play) -->
+      <div class="relative anim-fade-up anim-delay-2">
+        <div class="carousel-viewport w-full overflow-hidden rounded-2xl border border-surface-border shadow-sm">
+          <div class="carousel-track" id="customerTrack">
+            <div class="carousel-slide">
+              <img src="images/customer.s.webp" alt="Happy customer with motorbike in Da Nang" loading="lazy">
+            </div>
+            <div class="carousel-slide">
+              <img src="images/customer.a.webp" alt="Customer exploring Da Nang on a scooter" loading="lazy">
+            </div>
+            <div class="carousel-slide">
+              <img src="images/customer.4.webp" alt="Group of riders renting motorbikes" loading="lazy">
+            </div>
+            <div class="carousel-slide">
+              <img src="images/ppl.1.webp" alt="Travellers with their rental bikes" loading="lazy">
+            </div>
+            <div class="carousel-slide">
+              <img src="images/ppl.2.webp" alt="Happy riders ready for adventure" loading="lazy">
+            </div>
+            <div class="carousel-slide">
+              <img src="images/ppl.3.webp" alt="Customers at Vĩnh Phát Motorbikes" loading="lazy">
+            </div>
+          </div>
+        </div>
+
+        <!-- Prev/Next arrows -->
+        <button class="absolute left-2 top-1/2 -translate-y-1/2 w-9 h-9 md:w-10 md:h-10 bg-white/80 backdrop-blur rounded-full shadow-md flex items-center justify-center text-brand-blue-deep hover:bg-white transition z-10"
+                onclick="prevSlide('customer')" aria-label="Previous photo">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
+        </button>
+        <button class="absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 md:w-10 md:h-10 bg-white/80 backdrop-blur rounded-full shadow-md flex items-center justify-center text-brand-blue-deep hover:bg-white transition z-10"
+                onclick="nextSlide('customer')" aria-label="Next photo">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <!-- Dots -->
+      <div class="flex justify-center gap-2 mt-3" id="customerDots">
+        <button class="dot w-2.5 h-2.5 rounded-full bg-slate-300 active" onclick="goToSlide('customer', 0)" aria-label="Photo 1"></button>
+        <button class="dot w-2.5 h-2.5 rounded-full bg-slate-300" onclick="goToSlide('customer', 1)" aria-label="Photo 2"></button>
+        <button class="dot w-2.5 h-2.5 rounded-full bg-slate-300" onclick="goToSlide('customer', 2)" aria-label="Photo 3"></button>
+        <button class="dot w-2.5 h-2.5 rounded-full bg-slate-300" onclick="goToSlide('customer', 3)" aria-label="Photo 4"></button>
+        <button class="dot w-2.5 h-2.5 rounded-full bg-slate-300" onclick="goToSlide('customer', 4)" aria-label="Photo 5"></button>
+        <button class="dot w-2.5 h-2.5 rounded-full bg-slate-300" onclick="goToSlide('customer', 5)" aria-label="Photo 6"></button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== FIND US / MAP ==================== -->
+  <section class="px-4 md:px-8 py-8 md:py-12 bg-white">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-xl md:text-3xl font-extrabold text-brand-blue-deep mb-2 anim-fade-up" data-i18n="findUs">Come Visit Us!</h2>
+      <p class="text-slate-400 text-sm md:text-base mb-5 anim-fade-up anim-delay-1" data-i18n="findUsDesc">We're right in the heart of Da Nang — easy to find, easy to reach.</p>
+
+      <div class="w-full rounded-2xl overflow-hidden shadow-lg border border-slate-200/60 mb-6 map-glow anim-fade-up anim-delay-2 aspect-video md:aspect-[21/9] max-h-[350px]">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3833.9169651582236!2d108.2281501!3d16.0630642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314219a5eac72435%3A0x89ebec7b11cf9464!2zVsSpbmggUGjDoXQgTW90b3JiaWtlcyBSZW50YWwgxJDDoCBO4bq5bmc!5e0!3m2!1sen!2svn!4v1716300000000!5m2!1sen!2svn"
+          class="w-full h-full border-0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+      <a href="https://maps.app.goo.gl/C3TazTRhCGttZ7H47"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="map-glow inline-flex items-center justify-center gap-3 w-full md:w-auto py-4 px-8 rounded-2xl bg-gradient-to-r from-brand-blue to-brand-blue-dark text-white font-bold text-base md:text-lg transition-transform active:scale-95 hover:scale-105">
+        <svg class="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+        </svg>
+        <span data-i18n="openMaps">📍 Open in Google Maps</span>
+      </a>
+      <p class="text-slate-400 text-center text-xs md:text-sm mt-3" data-i18n="address">Da Nang, Vietnam — Open every day!</p>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <section class="px-4 md:px-8 py-8 md:py-12 text-center bg-surface-muted border-t border-surface-border">
+    <img src="images/logo.webp" alt="Vĩnh Phát Motorbikes" class="h-12 md:h-16 mx-auto mb-2 opacity-70" loading="lazy">
+    <p class="text-brand-blue-deep font-bold text-sm md:text-base" data-i18n="footerTagline">Your trusted ride in Da Nang 🇻🇳</p>
+    <p class="text-slate-400 text-xs md:text-sm mt-1" data-i18n="copyright">© 2025 Vĩnh Phát Motorbikes. All rights reserved.</p>
+    <div class="hidden md:flex justify-center gap-4 mt-4">
+      <a href="https://wa.me/84798456456" target="_blank" class="text-sm text-brand-blue hover:underline font-semibold">📱 WhatsApp</a>
+      <span class="text-slate-300">|</span>
+      <a href="https://zalo.me/84798456456" target="_blank" class="text-sm text-brand-blue hover:underline font-semibold">💬 Zalo</a>
+      <span class="text-slate-300">|</span>
+      <a href="https://maps.app.goo.gl/C3TazTRhCGttZ7H47" target="_blank" class="text-sm text-brand-blue hover:underline font-semibold">📍 Google Maps</a>
+    </div>
+  </section>
+
+  <!-- ==================== MOBILE-ONLY STICKY CTA ==================== -->
+  <div class="sticky-cta-mobile md:hidden">
+    <div class="px-4 py-3">
+      <div class="flex gap-3">
+        <a href="https://wa.me/84798456456"
+           target="_blank" rel="noopener noreferrer"
+           class="flex-1 flex items-center justify-center gap-2 py-3.5 rounded-xl bg-[#25D366] text-white font-bold text-base transition-transform active:scale-95 shadow-lg shadow-[#25D366]/20">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <span data-i18n="whatsapp">WhatsApp</span>
+        </a>
+        <a href="https://zalo.me/84798456456"
+           target="_blank" rel="noopener noreferrer"
+           class="flex-1 flex items-center justify-center gap-2 py-3.5 rounded-xl bg-[#0068FF] text-white font-bold text-base transition-transform active:scale-95 shadow-lg shadow-[#0068FF]/20">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><text x="12" y="16" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="Inter,sans-serif">Z</text></svg>
+          <span data-i18n="zalo">Zalo</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    // ========== TRANSLATIONS ==========
+    const translations = {
+      en: {
+        heroTitle: '<span class="text-white">Your Da Nang</span><br><span class="gold-shimmer">Adventure Starts Here.</span>',
+        heroSub: 'Welcome to Vĩnh Phát — your friendly neighborhood motorbike rental shop. We\'ll get you on the road in minutes, with zero stress and a big smile. 🏍️',
+        peaceOfMind: 'Adventure with peace of mind — our support and assistance are always just a phone call away.',
+        whyUsTitle: 'Why Riders Choose Us',
+        noDeposit: 'No Deposit Required',
+        noDepositDesc: 'Keep your cash in your pocket — we trust our riders. Just bring your passport or ID and you\'re good to go!',
+        helmets: 'Helmets & Phone Holders Included',
+        helmetsDesc: 'Every rental comes with a quality helmet and a phone holder so you can navigate Da Nang like a local — hands-free!',
+        fastProcess: 'Fast & Friendly Process',
+        fastProcessDesc: 'Walk in, pick your bike, and ride out — it\'s that simple. Our team speaks your language and we\'ll have you cruising in minutes, not hours.',
+        support: '24/7 Roadside Support',
+        supportDesc: 'Flat tire? Got lost? No worries! One call and we\'ll come to you. You\'re never on your own with Vĩnh Phát.',
+        fleetTitle: 'Our Huge Fleet',
+        fleetSub: 'From easy city scooters to powerful road bikes — we\'ve got a ride for every adventure.',
+        fleetDetail: 'We stock a <strong class="text-brand-blue-deep">huge fleet of motorbikes from 50cc all the way up to 155cc</strong>, with both <strong class="text-brand-blue-deep">Automatic</strong> and <strong class="text-brand-blue-deep">Semi-Automatic</strong> transmission options — so whether you\'re a brand-new rider or a seasoned traveller tackling the Hai Van Pass, we have the perfect machine for you.',
+        fleetHeroCaption: 'Something for everyone — the right bike is waiting for you!',
+        bike50: '50cc Scooter',
+        bike50Desc: 'Super easy to ride — perfect for first-timers and cruising around the city. Just twist and go!',
+        bike100: '100–125cc Semi-Auto',
+        bike100Desc: 'The sweet spot — more power for day trips to Hoi An, Ba Na Hills, and beyond. Easy clutchless shifting.',
+        bike155: '155cc Motorbike',
+        bike155Desc: 'Built for the open road — take on the Hai Van Pass with confidence. Power and control when you need it most.',
+        customersTitle: 'Happy Riders, Happy Memories',
+        customersSub: 'Join hundreds of travelers who explored Da Nang with us!',
+        findUs: 'Come Visit Us!',
+        findUsDesc: 'We\'re right in the heart of Da Nang — easy to find, easy to reach.',
+        openMaps: '📍 Open in Google Maps',
+        openMapsShort: 'Maps',
+        address: 'Da Nang, Vietnam — Open every day!',
+        footerTagline: 'Your trusted ride in Da Nang 🇻🇳',
+        copyright: '© 2025 Vĩnh Phát Motorbikes. All rights reserved.',
+        whatsapp: 'WhatsApp',
+        zalo: 'Zalo',
+        badgeAuto: 'Automatic',
+        badgeSemi: 'Semi-Automatic'
+      },
+      vi: {
+        heroTitle: '<span class="text-white">Khám Phá Đà Nẵng</span><br><span class="gold-shimmer">Bắt Đầu Từ Đây.</span>',
+        heroSub: 'Chào mừng đến Vĩnh Phát — cửa hàng cho thuê xe máy thân thiện. Chúng tôi sẽ đưa bạn lên đường trong vài phút, không lo lắng! 🏍️',
+        peaceOfMind: 'Phiêu lưu an tâm — hỗ trợ của chúng tôi luôn chỉ cách bạn một cuộc gọi.',
+        whyUsTitle: 'Tại Sao Chọn Chúng Tôi',
+        noDeposit: 'Không Cần Đặt Cọc',
+        noDepositDesc: 'Giữ tiền trong túi — chúng tôi tin tưởng bạn. Chỉ cần hộ chiếu hoặc CMND là xong!',
+        helmets: 'Mũ Bảo Hiểm & Giá Đỡ Điện Thoại',
+        helmetsDesc: 'Mỗi xe đều có mũ bảo hiểm và giá đỡ điện thoại để bạn dễ dàng di chuyển khắp Đà Nẵng!',
+        fastProcess: 'Nhanh Chóng & Thân Thiện',
+        fastProcessDesc: 'Đến, chọn xe, và chạy — đơn giản vậy thôi. Đội ngũ chúng tôi nói ngôn ngữ của bạn!',
+        support: 'Hỗ Trợ 24/7',
+        supportDesc: 'Xẹp lốp? Bị lạc? Đừng lo! Một cuộc gọi và chúng tôi sẽ đến ngay.',
+        fleetTitle: 'Dàn Xe Đa Dạng',
+        fleetSub: 'Từ xe tay ga dễ lái đến xe phân khối lớn — chúng tôi có xe cho mọi chuyến đi.',
+        fleetDetail: 'Chúng tôi có <strong class="text-brand-blue-deep">đội xe lớn từ 50cc đến 155cc</strong>, với cả hai loại <strong class="text-brand-blue-deep">Tự động</strong> và <strong class="text-brand-blue-deep">Bán tự động</strong> — phù hợp cho mọi người.',
+        fleetHeroCaption: 'Luôn có xe phù hợp cho bạn — hãy đến và chọn!',
+        bike50: 'Xe tay ga 50cc',
+        bike50Desc: 'Siêu dễ lái — hoàn hảo cho người mới và dạo quanh thành phố.',
+        bike100: '100–125cc Bán Tự Động',
+        bike100Desc: 'Lựa chọn tuyệt vời — mạnh hơn cho các chuyến đi Hội An, Bà Nà Hills.',
+        bike155: '155cc Xe Ga',
+        bike155Desc: 'Dành cho đường dài — chinh phục đèo Hải Vân một cách tự tin.',
+        customersTitle: 'Khách Hàng Vui Vẻ, Kỷ Niệm Đẹp',
+        customersSub: 'Hãy cùng hàng trăm du khách khám phá Đà Nẵng với chúng tôi!',
+        findUs: 'Ghé Thăm Chúng Tôi!',
+        findUsDesc: 'Chúng tôi ở ngay trung tâm Đà Nẵng — dễ tìm, dễ đến.',
+        openMaps: '📍 Mở Google Maps',
+        openMapsShort: 'Bản đồ',
+        address: 'Đà Nẵng, Việt Nam — Mở cửa mỗi ngày!',
+        footerTagline: 'Đồng hành tin cậy tại Đà Nẵng 🇻🇳',
+        copyright: '© 2025 Vĩnh Phát Motorbikes. Mọi quyền được bảo lưu.',
+        whatsapp: 'WhatsApp',
+        zalo: 'Zalo',
+        badgeAuto: 'Tự Động',
+        badgeSemi: 'Bán Tự Động'
+      },
+      ko: {
+        heroTitle: '<span class="text-white">다낭에서의</span><br><span class="gold-shimmer">모험이 시작됩니다.</span>',
+        heroSub: 'Vĩnh Phát에 오신 것을 환영합니다 — 친절한 오토바이 렌탈 가게입니다. 스트레스 없이 몇 분 만에 출발하세요! 🏍️',
+        peaceOfMind: '안심하고 모험하세요 — 저희의 지원은 항상 전화 한 통이면 됩니다.',
+        whyUsTitle: '저희를 선택하는 이유',
+        noDeposit: '보증금 없음',
+        noDepositDesc: '현금은 주머니에 — 여권이나 신분증만 가져오시면 됩니다!',
+        helmets: '헬멧 & 폰 거치대 포함',
+        helmetsDesc: '모든 렌탈에 헬멧과 폰 거치대가 포함되어 있어 다낭을 자유롭게 탐험할 수 있습니다!',
+        fastProcess: '빠르고 친절한 절차',
+        fastProcessDesc: '방문하고, 바이크를 고르고, 출발 — 간단합니다. 몇 분이면 됩니다!',
+        support: '24시간 지원',
+        supportDesc: '타이어 펑크? 길을 잃었나요? 걱정 마세요! 전화 한 통이면 달려갑니다.',
+        fleetTitle: '다양한 차량',
+        fleetSub: '도시용 스쿠터부터 파워풀한 바이크까지 — 모든 모험에 맞는 차량이 있습니다.',
+        fleetDetail: '<strong class="text-brand-blue-deep">50cc부터 155cc까지 다양한 바이크</strong>를 보유하고 있으며, <strong class="text-brand-blue-deep">자동</strong> 및 <strong class="text-brand-blue-deep">반자동</strong> 변속기 모두 제공합니다.',
+        fleetHeroCaption: '모든 분께 맞는 바이크가 있습니다 — 지금 선택하세요!',
+        bike50: '50cc 스쿠터',
+        bike50Desc: '초보자도 쉽게 — 도시 관광에 완벽합니다. 그냥 돌리면 출발!',
+        bike100: '100–125cc 반자동',
+        bike100Desc: '호이안, 바나힐 당일치기에 딱 좋은 파워.',
+        bike155: '155cc 오토바이',
+        bike155Desc: '하이반 패스 도전 — 힘과 컨트롤이 필요할 때.',
+        customersTitle: '행복한 라이더, 행복한 추억',
+        customersSub: '수백 명의 여행자와 함께 다낭을 탐험하세요!',
+        findUs: '방문해 주세요!',
+        findUsDesc: '다낭 중심부에 위치 — 찾기 쉽고, 오기 편합니다.',
+        openMaps: '📍 Google 지도에서 열기',
+        openMapsShort: '지도',
+        address: '다낭, 베트남 — 매일 영업!',
+        footerTagline: '다낭의 믿을 수 있는 파트너 🇻🇳',
+        copyright: '© 2025 Vĩnh Phát Motorbikes. 모든 권리 보유.',
+        whatsapp: 'WhatsApp',
+        zalo: 'Zalo',
+        badgeAuto: '자동',
+        badgeSemi: '반자동'
+      },
+      zh: {
+        heroTitle: '<span class="text-white">你的岘港</span><br><span class="gold-shimmer">冒险从这里开始。</span>',
+        heroSub: '欢迎来到 Vĩnh Phát — 友好的摩托车租赁店。几分钟内零压力上路！🏍️',
+        peaceOfMind: '安心冒险 — 我们的支持随时只需一个电话。',
+        whyUsTitle: '为什么选择我们',
+        noDeposit: '无需押金',
+        noDepositDesc: '现金留在口袋 — 只需护照或身份证即可！',
+        helmets: '含头盔和手机支架',
+        helmetsDesc: '每次租车都配有头盔和手机支架，让您像本地人一样轻松导航！',
+        fastProcess: '快速友好的流程',
+        fastProcessDesc: '走进来，选好车，骑走 — 就这么简单。几分钟搞定！',
+        support: '全天候路边支援',
+        supportDesc: '爆胎了？迷路了？别担心！一个电话我们就来。',
+        fleetTitle: '庞大车队',
+        fleetSub: '从轻松的城市踏板车到强劲的公路摩托 — 适合每一次冒险。',
+        fleetDetail: '我们拥有<strong class="text-brand-blue-deep">从50cc到155cc的庞大车队</strong>，提供<strong class="text-brand-blue-deep">自动</strong>和<strong class="text-brand-blue-deep">半自动</strong>两种变速选项。',
+        fleetHeroCaption: '总有一款适合您 — 来挑选您的爱车吧！',
+        bike50: '50cc 踏板车',
+        bike50Desc: '超级好骑 — 新手和城市骑行的完美选择。',
+        bike100: '100–125cc 半自动',
+        bike100Desc: '动力恰到好处 — 会安、巴拿山一日游的最佳选择。',
+        bike155: '155cc 摩托车',
+        bike155Desc: '为公路而生 — 自信征服海云关。',
+        customersTitle: '快乐骑手，美好回忆',
+        customersSub: '加入数百名与我们一起探索岘港的旅行者！',
+        findUs: '来找我们吧！',
+        findUsDesc: '我们就在岘港市中心 — 容易找到。',
+        openMaps: '📍 在Google地图中打开',
+        openMapsShort: '地图',
+        address: '岘港，越南 — 每天营业！',
+        footerTagline: '您在岘港的可靠伙伴 🇻🇳',
+        copyright: '© 2025 Vĩnh Phát Motorbikes. 保留所有权利。',
+        whatsapp: 'WhatsApp',
+        zalo: 'Zalo',
+        badgeAuto: '自动',
+        badgeSemi: '半自动'
+      },
+      ja: {
+        heroTitle: '<span class="text-white">ダナンでの</span><br><span class="gold-shimmer">冒険はここから。</span>',
+        heroSub: 'Vĩnh Phátへようこそ — フレンドリーなバイクレンタルショップです。ストレスゼロで数分で出発！🏍️',
+        peaceOfMind: '安心して冒険を — サポートはいつでも電話一本で。',
+        whyUsTitle: '選ばれる理由',
+        noDeposit: 'デポジット不要',
+        noDepositDesc: '現金はポケットに — パスポートかIDだけでOK！',
+        helmets: 'ヘルメット＆スマホホルダー付き',
+        helmetsDesc: 'すべてのレンタルにヘルメットとスマホホルダーが付いています！',
+        fastProcess: '迅速でフレンドリー',
+        fastProcessDesc: '来店して、バイクを選んで、出発 — シンプルです。数分で完了！',
+        support: '24時間ロードサポート',
+        supportDesc: 'パンク？道に迷った？大丈夫！電話一本で駆けつけます。',
+        fleetTitle: '豊富な車両',
+        fleetSub: '街乗りスクーターからパワフルなバイクまで — あらゆる冒険に対応。',
+        fleetDetail: '<strong class="text-brand-blue-deep">50ccから155ccまでの豊富な車両</strong>を揃えており、<strong class="text-brand-blue-deep">オートマ</strong>と<strong class="text-brand-blue-deep">セミオートマ</strong>の両方をご用意しています。',
+        fleetHeroCaption: 'あなたにぴったりのバイクが待っています！',
+        bike50: '50cc スクーター',
+        bike50Desc: '超簡単 — 初心者や街乗りに最適。ひねるだけで出発！',
+        bike100: '100–125cc セミオートマ',
+        bike100Desc: 'ホイアンやバナヒルズへの日帰りに最適なパワー。',
+        bike155: '155cc バイク',
+        bike155Desc: 'ハイヴァン峠に挑戦 — パワーとコントロールを。',
+        customersTitle: 'ハッピーライダー、素敵な思い出',
+        customersSub: '何百人もの旅行者と一緒にダナンを探検しましょう！',
+        findUs: 'お店に来てください！',
+        findUsDesc: 'ダナンの中心部にあります — 簡単に見つかります。',
+        openMaps: '📍 Googleマップで開く',
+        openMapsShort: '地図',
+        address: 'ダナン、ベトナム — 毎日営業！',
+        footerTagline: 'ダナンの信頼できるパートナー 🇻🇳',
+        copyright: '© 2025 Vĩnh Phát Motorbikes. 全著作権所有。',
+        whatsapp: 'WhatsApp',
+        zalo: 'Zalo',
+        badgeAuto: 'オートマ',
+        badgeSemi: 'セミオートマ'
+      },
+      ru: {
+        heroTitle: '<span class="text-white">Ваше приключение</span><br><span class="gold-shimmer">в Дананге начинается здесь.</span>',
+        heroSub: 'Добро пожаловать в Vĩnh Phát — дружелюбный прокат мотоциклов. Выезжайте за минуты, без стресса! 🏍️',
+        peaceOfMind: 'Путешествуйте спокойно — наша поддержка всегда на расстоянии одного звонка.',
+        whyUsTitle: 'Почему выбирают нас',
+        noDeposit: 'Без залога',
+        noDepositDesc: 'Наличные при вас — нужен только паспорт или ID!',
+        helmets: 'Шлемы и держатели телефонов',
+        helmetsDesc: 'Каждая аренда включает шлем и держатель для телефона!',
+        fastProcess: 'Быстро и дружелюбно',
+        fastProcessDesc: 'Приходите, выбирайте байк и в путь — всё просто. За минуты, а не часы!',
+        support: 'Поддержка 24/7',
+        supportDesc: 'Прокол? Заблудились? Не волнуйтесь! Один звонок — и мы приедем.',
+        fleetTitle: 'Огромный автопарк',
+        fleetSub: 'От лёгких скутеров до мощных мотоциклов — найдётся байк для любого приключения.',
+        fleetDetail: 'Наш <strong class="text-brand-blue-deep">огромный парк от 50cc до 155cc</strong> включает как <strong class="text-brand-blue-deep">автоматические</strong>, так и <strong class="text-brand-blue-deep">полуавтоматические</strong> мотоциклы — для любого уровня.',
+        fleetHeroCaption: 'Для каждого найдётся подходящий байк — приходите выбирать!',
+        bike50: '50cc Скутер',
+        bike50Desc: 'Супер простой — идеален для новичков и городских поездок.',
+        bike100: '100–125cc Полуавтомат',
+        bike100Desc: 'Золотая середина — больше мощности для поездок в Хойан и Бана Хиллс.',
+        bike155: '155cc Мотоцикл',
+        bike155Desc: 'Для открытой дороги — покорите перевал Хайван с уверенностью.',
+        customersTitle: 'Счастливые райдеры, прекрасные воспоминания',
+        customersSub: 'Присоединяйтесь к сотням путешественников!',
+        findUs: 'Приходите к нам!',
+        findUsDesc: 'Мы в самом центре Дананга — легко найти.',
+        openMaps: '📍 Открыть в Google Картах',
+        openMapsShort: 'Карта',
+        address: 'Дананг, Вьетнам — Открыто каждый день!',
+        footerTagline: 'Ваш надёжный партнёр в Дананге 🇻🇳',
+        copyright: '© 2025 Vĩnh Phát Motorbikes. Все права защищены.',
+        whatsapp: 'WhatsApp',
+        zalo: 'Zalo',
+        badgeAuto: 'Автомат',
+        badgeSemi: 'Полуавтомат'
+      }
+    };
+
+    let currentLang = 'en';
+
+    function switchLang(lang) {
+      currentLang = lang;
+      const t = translations[lang];
+      if (!t) return;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key] !== undefined) {
+          if (key === 'heroTitle' || key === 'fleetDetail') {
+            el.innerHTML = t[key];
+          } else {
+            el.textContent = t[key];
+          }
+        }
+      });
+      document.documentElement.lang = lang;
+    }
+
+
+    // ========== CAROUSEL ENGINE ==========
+    const carousels = {
+      customer: { track: 'customerTrack', dots: 'customerDots', current: 0, total: 6, interval: null }
+    };
+
+    function goToSlide(name, index) {
+      const c = carousels[name];
+      c.current = index;
+      const track = document.getElementById(c.track);
+      if (!track) return;
+      track.style.transform = `translateX(-${index * 100}%)`;
+      const dotsEl = document.getElementById(c.dots);
+      if (!dotsEl) return;
+      dotsEl.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === index));
+      resetAutoPlay(name);
+    }
+
+    function nextSlide(name) {
+      const c = carousels[name];
+      goToSlide(name, (c.current + 1) % c.total);
+    }
+
+    function prevSlide(name) {
+      const c = carousels[name];
+      goToSlide(name, (c.current - 1 + c.total) % c.total);
+    }
+
+    function resetAutoPlay(name) {
+      const c = carousels[name];
+      if (c.interval) clearInterval(c.interval);
+      c.interval = setInterval(() => nextSlide(name), 4500);
+    }
+
+    resetAutoPlay('customer');
+
+
+    // ========== TOUCH SWIPE ==========
+    function addSwipe(name) {
+      const track = document.getElementById(carousels[name].track);
+      if (!track) return;
+      let startX = 0;
+      track.addEventListener('touchstart', e => {
+        startX = e.changedTouches[0].screenX;
+      }, { passive: true });
+      track.addEventListener('touchend', e => {
+        const diff = startX - e.changedTouches[0].screenX;
+        if (Math.abs(diff) > 50) {
+          if (diff > 0) nextSlide(name);
+          else prevSlide(name);
+        }
+      }, { passive: true });
+    }
+
+    addSwipe('customer');
+
+
+    // ========== INTERSECTION OBSERVER ==========
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animationPlayState = 'running';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.anim-fade-up').forEach(el => {
+      el.style.animationPlayState = 'paused';
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>
